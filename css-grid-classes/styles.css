@@ -1,0 +1,39 @@
+.container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: sans-serif;
+}
+
+header {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+img {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-third {
+  width: calc(100% / 3);
+}
+
+.column-fourth {
+  width: 25%;
+}
+
+.column-seventy-percent {
+  width: 70%;
+}
+
+.column-thirty-percent {
+  width: 30%;
+}

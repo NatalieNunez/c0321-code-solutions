@@ -1,14 +1,53 @@
-h1 {
+body {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+h3 {
   text-align: center;
-  color: rgb(255, 73, 49);
-  font-family: sans-serif;
+  color: rgb(240, 101, 92);
+  font-family: 'Brandon Grotesque', sans-serif;
   font-weight: 500;
+  src: url('BrandonGrotesque-Medium.woff2') format('woff2');
+}
+
+div {
+  padding: 5px;
+}
+
+label {
+  margin: 1.2em;
+  font-family: 'Brandon Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+input,
+select {
+  padding: 15px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgb(180, 180, 180);
+}
+
+#numHiring {
+  padding-left: 1px;
+  font: 15px sans-serif;
+  background-color: rgb(243, 243, 243);
+}
+
+::placeholder {
+  font: 16px sans-serif;
+  color: rgb(172, 172, 172);
+  font-weight: lighter;
 }
 
 button {
+  background-color: rgb(240, 101, 92);
   color: white;
-  background-color: rgb(255, 73, 49);
-  font-family: sans-serif;
-  border: none;
-  border-radius: 5px;
+  border-style: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 16px;
+  float: right;
 }

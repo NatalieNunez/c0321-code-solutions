@@ -1,6 +1,7 @@
 body {
   margin-left: 15%;
   margin-right: 15%;
+  padding: 4px;
 }
 
 h3 {
@@ -12,19 +13,20 @@ h3 {
 }
 
 div {
-  padding: 5px;
+  padding: 4px;
 }
 
 label {
   margin: 1.2em;
   font-family: 'Brandon Grotesque', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
+  color: rgb(70, 70, 70);
 }
 
 input,
 select {
-  padding: 15px;
+  padding: 11px;
   width: 100%;
   border-radius: 5px;
   border: 1px solid rgb(180, 180, 180);
@@ -32,8 +34,10 @@ select {
 
 #numHiring {
   padding-left: 1px;
-  font: 15px sans-serif;
+  font: 13px 'AtlasGrotesk', sans-serif;
   background-color: rgb(243, 243, 243);
+  color: rgb(46, 46, 46);
+  font-weight: 700;
 }
 
 ::placeholder {

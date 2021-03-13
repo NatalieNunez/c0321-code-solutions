@@ -1,0 +1,44 @@
+body {
+  font-family: 'Lato', sans-serif;
+  color: white;
+  background-color: rgb(42, 177, 255);
+}
+
+section.container {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row {
+  display: flex;
+  text-align: center;
+  padding: 5px;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.column-third {
+  width: calc(100% / 3);
+  justify-content: center;
+}
+
+img {
+  width: 25%;
+  background-color: white;
+  border: 5px none white;
+  border-radius: 50%;
+  padding: 10%;
+}
+
+.row:nth-child(2) {
+  margin: 35px;
+  padding: 20px;
+}
+
+p {
+  width: 50%;
+  justify-content: center;
+}

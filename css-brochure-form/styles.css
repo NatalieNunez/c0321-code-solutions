@@ -1,0 +1,55 @@
+body {
+  margin: auto;
+  padding: 4px;
+}
+
+h3 {
+  text-align: center;
+  color: rgb(240, 101, 92);
+  font-family: 'Brandon Grotesque', sans-serif;
+  font-weight: 500;
+}
+
+div {
+  padding: 4px;
+}
+
+label {
+  margin: 1.2em;
+  font-family: 'Brandon Grotesque', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: rgb(70, 70, 70);
+}
+
+input,
+select {
+  padding: 11px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgb(180, 180, 180);
+}
+
+#numHiring {
+  padding-left: 1px;
+  font: 13px 'AtlasGrotesk', sans-serif;
+  background-color: rgb(243, 243, 243);
+  color: rgb(46, 46, 46);
+  font-weight: 700;
+}
+
+::placeholder {
+  font: 16px sans-serif;
+  color: rgb(172, 172, 172);
+  font-weight: lighter;
+}
+
+button {
+  background-color: rgb(240, 101, 92);
+  color: white;
+  border-style: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-size: 16px;
+  float: right;
+}

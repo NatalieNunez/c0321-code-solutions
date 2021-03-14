@@ -11,7 +11,7 @@ body {
 
 .row {
   display: flex;
-  text-align: center;
+  justify-content: center;
 }
 
 .column-full {
@@ -27,4 +27,5 @@ p {
   color: gray;
   font-size: 10px;
   line-height: 15px;
+  text-align: center;
 }

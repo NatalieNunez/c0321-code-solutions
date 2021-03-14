@@ -1,5 +1,7 @@
 body {
   max-width: 800px;
+  font-family: 'Karla', sans-serif;
+  font-style: normal;
 }
 
 #container {
@@ -13,12 +15,16 @@ body {
 }
 
 .column-full {
-  width: 100%;
+  width: 55%;
 }
 
 h1 {
-  font-family: 'Karla', sans-serif;
-  font-style: normal;
   font-weight: 600;
   letter-spacing: 2px;
+}
+
+p {
+  color: gray;
+  font-size: 10px;
+  line-height: 15px;
 }

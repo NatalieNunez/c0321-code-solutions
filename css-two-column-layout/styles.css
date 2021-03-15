@@ -12,20 +12,72 @@ body {
 .row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.column-full {
-  width: 55%;
+.col-60 {
+  width: 60%;
+}
+
+.col-half {
+  width: 50%;
+  padding: 25px 40px;
+}
+
+.col-three-fourths {
+  width: 75%;
 }
 
 h1 {
   font-weight: 600;
   letter-spacing: 2px;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 p {
-  color: gray;
-  font-size: 10px;
-  line-height: 15px;
+  color: rgb(105, 103, 103);
+  font-size: 11px;
+  line-height: 20px;
+}
+
+p.header {
   text-align: center;
+}
+
+img {
+  width: 90px;
+  height: 90px;
+  float: left;
+  position: relative;
+}
+
+h6 {
+  display: inline;
+  font-weight: bold;
+}
+
+.group {
+  margin-left: 20px;
+}
+
+button {
+  border: 2px solid rgb(219, 97, 80);
+  color: rgb(219, 97, 80);
+  background-color: white;
+  padding: 8px 30px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.button {
+  margin: 20px;
+}
+
+div.text {
+  position: relative;
+  top: 25px;
+  margin-left: 90px;
+  padding: 5px;
 }

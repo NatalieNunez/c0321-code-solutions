@@ -126,7 +126,7 @@ h2 {
   justify-content: space-between;
 }
 
-div.col-4 a,
+/* div.col-4 a,
 div.col-4 header,
 div.col-4 h4,
 div.col-4 h5 {
@@ -134,10 +134,11 @@ div.col-4 h5 {
   display: block;
   text-align: left;
   line-height: 0px;
-}
+} */
 
 .info {
-  background-color: rgb(58, 58, 58);
+  background-color: rgb(66, 66, 65);
   color: white;
   justify-content: space-between;
+  height: 400px;
 }

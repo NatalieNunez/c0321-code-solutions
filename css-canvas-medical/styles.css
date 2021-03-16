@@ -1,0 +1,206 @@
+body {
+  max-width: 1000px;
+  margin: 35px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+nav.row {
+  justify-content: space-between;
+}
+
+.nav-bar {
+  position: relative;
+  right: 55px;
+}
+
+header {
+  color: rgb(49, 77, 110);
+  font-size: 45px;
+  position: relative;
+  left: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(175, 175, 175);
+  font-family: 'Avenir', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 20px;
+}
+
+a:hover {
+  color: rgb(92, 92, 92);
+  font-size: 17px;
+}
+
+hr {
+  border: 1px solid rgb(241, 241, 241);
+}
+
+.main {
+  color: white;
+  background-image: url(images/hero.jpg);
+  background-size: cover;
+  position: relative;
+  top: 40px;
+  left: 40px;
+  width: 900px;
+  height: 470px;
+}
+
+.overlay {
+  background-color: rgba(151, 151, 151, 0.26);
+  height: 470px;
+}
+
+.text {
+  position: absolute;
+  top: 50px;
+  left: 60px;
+  width: 420px;
+}
+
+button {
+  background-color: rgb(49, 75, 109);
+  border-style: none;
+  color: rgb(230, 230, 230);
+  padding: 15px 45px;
+  border-radius: 5%;
+  font-size: 17px;
+}
+
+.header-button {
+  background-color: rgb(49, 75, 109);
+  border-style: none;
+  color: rgb(230, 230, 230);
+  padding: 15px 20px;
+  border-radius: 5%;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: rgb(31, 49, 71);
+}
+
+p {
+  font-family: sans-serif;
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+.col-half {
+  width: 50%;
+  justify-content: center;
+}
+
+.col-4 {
+  width: 25%;
+}
+
+.locations {
+  margin: 100px auto 40px;
+  background-color: whitesmoke;
+  color: rgb(109, 109, 109);
+  text-align: center;
+  height: 450px;
+  padding: 40px;
+}
+
+h4,
+h5 {
+  font-family: 'Avenir', sans-serif;
+  line-height: 2;
+  color: rgb(126, 126, 126);
+}
+
+h2 {
+  color: rgb(126, 126, 126);
+  font-family: 'Tiempos Headline', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+div.col-4-right > a {
+  text-decoration: none;
+  color: rgb(255, 253, 253);
+  font-family: 'Avenir', sans-serif;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 3px;
+}
+
+.meeting {
+  margin: 20px 45px;
+}
+
+.meeting .row {
+  justify-content: space-between;
+}
+
+.info {
+  background-color: rgb(97, 97, 97);
+  color: white;
+  justify-content: center;
+  height: 350px;
+  padding: 50px 0;
+}
+
+.footer {
+  height: 95px;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: center;
+}
+
+.footer-info {
+  margin-left: 35px;
+  color: rgb(97, 97, 97);
+  padding: 8px;
+}
+
+span {
+  color: white;
+  line-height: 20px;
+  font-size: 14px;
+  display: block;
+  font-family: 'Avenir', sans-serif;
+}
+
+.schedule {
+  font-size: 12px;
+  color: rgb(126, 126, 126);
+  position: relative;
+  bottom: 15px;
+}
+
+.col-4-left {
+  justify-content: start;
+  width: 42%;
+}
+
+.col-4-right {
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  line-height: 2.2;
+  font-family: 'Avenir', sans-serif;
+}
+
+.info-tags {
+  color: white;
+}
+
+.canvas {
+  font-size: 37px;
+  font-weight: 100;
+  color: white;
+  text-align: left;
+  margin-bottom: 26px;
+}

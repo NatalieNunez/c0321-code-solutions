@@ -20,10 +20,10 @@ function getFirstName(person) {
   return person.firstName;
 }
 
-console.log(getFirstName({ firstName: 'Natalie', lastName: 'Nunez' }));
+console.log('getFirstName Result:', getFirstName({ firstName: 'Natalie', lastName: 'Nunez' }));
 
 function getLastElement(array) {
   return array[array.length - 1];
 }
 
-console.log(getLastElement(['strawberries', 'mangos', 'almonds', 'bananas']));
+console.log('getLastElement Result:', getLastElement(['strawberries', 'mangos', 'almonds', 'bananas']));

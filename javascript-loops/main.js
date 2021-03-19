@@ -8,18 +8,20 @@
  */
 function getNumbersToTen() {
   var numbers = [];
-  var currentNumber;
-  for (currentNumber = 1; currentNumber <= 10; currentNumber++) {
+  var currentNumber = 1;
+  while (currentNumber <= 10) {
     numbers.push(currentNumber);
+    currentNumber++;
   }
   return numbers;
 }
 
 function getEvenNumbersToTwenty() {
   var evenNumbers = [];
-  var currentNumber;
-  for (currentNumber = 2; currentNumber <= 20; currentNumber += 2) {
+  var currentNumber = 2;
+  while (currentNumber <= 20) {
     evenNumbers.push(currentNumber);
+    currentNumber += 2;
   }
   return evenNumbers;
 }

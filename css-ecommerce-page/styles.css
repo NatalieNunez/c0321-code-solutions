@@ -1,0 +1,51 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+#container {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col-fifth {
+  flex-basis: 20%;
+  flex-direction: column;
+}
+
+img {
+  width: 95%;
+  object-fit: contain;
+}
+
+.item-info {
+  font-size: 0.5rem;
+  padding: 5px;
+}
+
+.size,
+.old-price {
+  color: rgb(204, 204, 204);
+}
+
+.price {
+  background-color: rgb(255, 239, 226);
+}
+
+.old-price {
+  margin-left: 2%;
+  text-decoration-line: line-through;
+}
+
+.deal {
+  padding-top: 5%;
+}
+
+div.deal > span {
+  justify-content: space-between;
+}

@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 900px;
+  align-items: center;
+  justify-content: center;
+}
+
+.container.on {
+  background-color: #fffaf0;
+}
+
+.container.off {
+  background-color: #101010;
+}
+
+.lightbulb {
+  width: 300px;
+  height: 300px;
+  border-style: none;
+  border-radius: 50%;
+}
+
+.lightbulb:focus {
+  outline: none;
+}
+
+.lightbulb.on {
+  background-color: rgb(253, 243, 122);
+  box-shadow: 1px 10px 5px 10px #f7f3cdc7;
+}
+
+.lightbulb.off {
+  background-color: rgb(35, 35, 35);
+  box-shadow: 1px -10px 5px 10px black;
+}

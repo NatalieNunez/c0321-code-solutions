@@ -1,13 +1,15 @@
-var $container = document.querySelector('.container.on');
-var $lightbulb = document.querySelector('.lightbulb.on');
+var $container = document.querySelector('.container.off');
+var $lightbulb = document.querySelector('.lightbulb.off');
+var isOn = false;
 
 function clickLightbulb(event) {
-  if ($lightbulb.className === 'lightbulb on') {
-    $lightbulb.className = 'lightbulb off';
-    $container.className = 'container off';
-  } else {
-    $lightbulb.className = 'lightbulb on';
+  isOn = !isOn;
+  if (isOn) {
     $container.className = 'container on';
+    $lightbulb.className = 'lightbulb on';
+  } else {
+    $container.className = 'container off';
+    $lightbulb.className = 'lightbulb off';
   }
 }
 

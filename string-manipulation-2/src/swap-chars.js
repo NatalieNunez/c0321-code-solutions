@@ -1,8 +1,14 @@
 /* exported swapChars */
 function swapChars(firstIndex, secondIndex, string) {
-  var first = string[secondIndex];
-  var second = string[firstIndex];
-  var firstStr = string.replace(string[firstIndex], first);
-  var swapStr = firstStr.replace(firstStr[secondIndex], second);
-  return swapStr;
+  var newStr = '';
+  for (var i = 0; i < string.length; i++) {
+    if (i === firstIndex) {
+      newStr += string[secondIndex];
+    } else if (i === secondIndex) {
+      newStr += string[firstIndex];
+    } else {
+      newStr += string[i];
+    }
+  }
+  return newStr;
 }

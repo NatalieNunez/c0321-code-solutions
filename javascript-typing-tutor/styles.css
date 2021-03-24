@@ -1,0 +1,25 @@
+.phrase {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  font-family: monospace;
+  font-weight: 600;
+}
+
+span {
+  padding: 5px;
+}
+
+.true {
+  color: rgb(24, 109, 24);
+  background-color: rgb(211, 255, 211);
+  border-bottom: solid;
+}
+
+.false {
+  color: rgb(175, 44, 44);
+  background-color: rgb(255, 211, 211);
+  border-bottom: solid rgb(175, 44, 44);
+}

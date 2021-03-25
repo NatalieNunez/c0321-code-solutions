@@ -1,7 +1,7 @@
 var $contactForm = document.getElementById('contact-form');
-var userData = {};
 
 function handleSubmit(event) {
+  var userData = {};
   event.preventDefault();
   userData.name = $contactForm.elements.name.value;
   userData.email = $contactForm.elements.email.value;

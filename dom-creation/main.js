@@ -91,6 +91,7 @@ function renderPokemon(pokemon) {
 }
 
 var $row = document.querySelector('.row');
+
 for (var i = 0; i < pokedex.length; i++) {
   var object = renderPokemon(pokedex[i]);
   $row.appendChild(object);

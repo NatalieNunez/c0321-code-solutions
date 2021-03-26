@@ -18,7 +18,7 @@ function handlesClick(event) {
   var checkValue = event.target.dataset.view;
   for (var k = 0; k < $views.length; k++) {
     if ($views[k].dataset.view !== checkValue) {
-      $views[k].className = 'hidden';
+      $views[k].className = 'view hidden';
     } else {
       $views[k].className = 'view';
     }

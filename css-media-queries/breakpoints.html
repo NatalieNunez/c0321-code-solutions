@@ -18,7 +18,17 @@
       flex-basis: 100%;
     }
 
-    /* your code here 👇 */
+    @media only screen and (min-width: 575px) {
+      .card-container {
+        flex-basis: 50%;
+      }
+    }
+
+    @media only screen and (min-width: 767px) {
+      .card-container {
+        flex-basis: calc(100% / 3);
+      }
+    }
 
   </style>
 </head>

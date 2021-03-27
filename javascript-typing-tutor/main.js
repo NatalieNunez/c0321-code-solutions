@@ -1,8 +1,19 @@
 var $phrase = document.querySelector('.phrase');
-// var $character = document.querySelectorAll('span');
+var $character = document.querySelectorAll('span');
 
 function handleKeyDown(event) {
-//  console.log('key down!');
+  // console.log('key down!');
+  // console.log('event.key', event.key);
+  for (var i = 0; i < $character.length; i++) {
+    if ($character[i].textContent === event.key) {
+      $character[i].className = 'true';
+    } else {
+      $character[i].className = 'set';
+    }
+    if ($character[i].textContent !== event.key) {
+      $character[i].className = 'false';
+    }
+  }
 }
 
 $phrase.addEventListener('keydown', handleKeyDown);
@@ -17,3 +28,7 @@ $phrase.addEventListener('keydown', handleKeyDown);
 // Send a message to user asking if they want to play again (modal?)
 //   + if yes, start over
 //   + if no, send a message, have a nice day!
+// if character is in focus, class = set
+// if character textContent === event.key class = true
+// if character textContent !== event.key class = false
+// only check one span at a time

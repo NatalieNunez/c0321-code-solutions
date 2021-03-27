@@ -6,20 +6,25 @@
   font-size: 60px;
   font-family: monospace;
   font-weight: 600;
+  outline: none;
 }
 
 span {
   padding: 5px;
 }
 
-.true {
-  color: rgb(24, 109, 24);
-  background-color: rgb(211, 255, 211);
+.set {
+  color: black;
   border-bottom: solid;
 }
 
+.true {
+  color: green;
+}
+
 .false {
-  color: rgb(175, 44, 44);
-  background-color: rgb(255, 211, 211);
-  border-bottom: solid rgb(175, 44, 44);
+  color: red;
+
+  /* background-color: rgb(255, 211, 211); */
+  border-bottom: solid red;
 }

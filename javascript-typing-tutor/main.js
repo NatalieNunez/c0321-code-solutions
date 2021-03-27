@@ -2,7 +2,7 @@ var $phrase = document.querySelector('.phrase');
 // var $character = document.querySelectorAll('span');
 
 function handleKeyDown(event) {
-  // console.log('key down!');
+//  console.log('key down!');
 }
 
 $phrase.addEventListener('keydown', handleKeyDown);

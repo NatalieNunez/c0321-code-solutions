@@ -6,13 +6,11 @@ function handleKeyDown(event) {
   // console.log('event.key', event.key);
   for (var i = 0; i < $character.length; i++) {
     if ($character[i].textContent === event.key) {
-      $character[i].className = 'true';
+      $character[i].setAttribute('class', 'true');
     } else {
-      $character[i].className = 'set';
+      $character[i].setAttribute('class', 'false');
     }
-    if ($character[i].textContent !== event.key) {
-      $character[i].className = 'false';
-    }
+    $character[i + 1].setAttribute('class', 'start');
   }
 }
 

@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.col-15,
+.col-70,
+.col-full {
+  display: flex;
+}
+
+.col-15 {
+  flex-basis: 15%;
+}
+
+.col-70 {
+  flex-basis: 60%;
+}
+
+.col-full {
+  flex-basis: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  object-fit: contain;
+  justify-content: center;
+}

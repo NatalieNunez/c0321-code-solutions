@@ -16,7 +16,7 @@ for (var i = 0; i < $images.length; i++) {
   }
 }
 
-setInterval(function () {
+var timerId = setTimeout(setInterval(function start() {
   if (currentIndex === $images.length - 1) {
     $images[currentIndex].classList.add('hidden');
     $images[0].classList.remove('hidden');
@@ -30,16 +30,10 @@ setInterval(function () {
     $dots[currentIndex + 1].className = 'fas fa-circle';
     currentIndex++;
   }
-}, 3000);
+}, 3000), 3000);
 
 function handleClickArrows(event) {
-  // if (timerId !== false) {
-  //   clearInterval(timerId);
-  //   timerId = false;
-  // } else {
-  //   timer();
-  // }
-
+  clearTimeout(timerId);
   for (var i = 0; i < $images.length; i++) {
     if ($images[i].classList.length === 0) {
       start = $images[i];
@@ -79,6 +73,7 @@ $previousArrow.addEventListener('click', handleClickArrows);
 $nextArrow.addEventListener('click', handleClickArrows);
 
 function handleClickDots(event) {
+  clearTimeout(timerId);
   for (var i = 0; i < $dots.length; i++) {
     if ($dots[i] === event.target) {
       event.target.className = 'fas fa-circle';

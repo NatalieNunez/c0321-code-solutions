@@ -16,7 +16,7 @@ for (var i = 0; i < $images.length; i++) {
   }
 }
 
-var timerId = setTimeout(setInterval(function start() {
+var timerId = setInterval(function start() {
   if (currentIndex === $images.length - 1) {
     $images[currentIndex].classList.add('hidden');
     $images[0].classList.remove('hidden');
@@ -30,7 +30,7 @@ var timerId = setTimeout(setInterval(function start() {
     $dots[currentIndex + 1].className = 'fas fa-circle';
     currentIndex++;
   }
-}, 3000), 3000);
+}, 3000);
 
 function handleClickArrows(event) {
   clearTimeout(timerId);
@@ -67,6 +67,7 @@ function handleClickArrows(event) {
       $dots[currentIndex + 1].className = 'fas fa-circle';
     }
   }
+  setInterval(start(), 3000);
 }
 
 $previousArrow.addEventListener('click', handleClickArrows);

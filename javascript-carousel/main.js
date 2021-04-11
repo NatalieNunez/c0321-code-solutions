@@ -16,7 +16,7 @@ for (var i = 0; i < $images.length; i++) {
   }
 }
 
-var timerId = setInterval(function start() {
+setInterval(function start() {
   if (currentIndex === $images.length - 1) {
     $images[currentIndex].classList.add('hidden');
     $images[0].classList.remove('hidden');
@@ -33,7 +33,7 @@ var timerId = setInterval(function start() {
 }, 3000);
 
 function handleClickArrows(event) {
-  clearTimeout(timerId);
+  // clearTimeout(timerId);
   for (var i = 0; i < $images.length; i++) {
     if ($images[i].classList.length === 0) {
       start = $images[i];
@@ -42,6 +42,8 @@ function handleClickArrows(event) {
   }
 
   if (event.target === $previousArrow) {
+    // console.log('start:', start);
+    // console.log('currentindex:', currentIndex);
     if (currentIndex === 0) {
       $images[currentIndex].classList.add('hidden');
       $images[$images.length - 1].classList.remove('hidden');
@@ -67,23 +69,22 @@ function handleClickArrows(event) {
       $dots[currentIndex + 1].className = 'fas fa-circle';
     }
   }
-  setInterval(start(), 3000);
+  // setInterval(start(), 3000);
 }
 
 $previousArrow.addEventListener('click', handleClickArrows);
 $nextArrow.addEventListener('click', handleClickArrows);
 
 function handleClickDots(event) {
-  clearTimeout(timerId);
-  for (var i = 0; i < $dots.length; i++) {
-    if ($dots[i] === event.target) {
-      event.target.className = 'fas fa-circle';
-      $images[i].classList.remove('hidden');
-    } else {
-      $dots[i].className = 'far fa-circle';
-      $images[i].classList.add('hidden');
-    }
-  }
+  $images[currentIndex].classList.add('hidden');
+  $dots[currentIndex].className = 'far fa-circle';
+  // console.log('first current index', currentIndex);
+  currentIndex = $dots.indexOf(event.target);
+  start = $images[currentIndex];
+  // console.log('start', start);
+  // console.log('current index', currentIndex);
+  start.classList.remove('hidden');
+  event.target.className = 'fas fa-circle';
 }
 
 $progressDots.addEventListener('click', handleClickDots);

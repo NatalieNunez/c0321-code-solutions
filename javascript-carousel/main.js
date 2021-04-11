@@ -33,7 +33,6 @@ setInterval(function start() {
 }, 3000);
 
 function handleClickArrows(event) {
-  // clearTimeout(timerId);
   for (var i = 0; i < $images.length; i++) {
     if ($images[i].classList.length === 0) {
       start = $images[i];
@@ -42,18 +41,18 @@ function handleClickArrows(event) {
   }
 
   if (event.target === $previousArrow) {
-    // console.log('start:', start);
-    // console.log('currentindex:', currentIndex);
     if (currentIndex === 0) {
       $images[currentIndex].classList.add('hidden');
       $images[$images.length - 1].classList.remove('hidden');
       $dots[currentIndex].className = 'far fa-circle';
       $dots[$dots.length - 1].className = 'fas fa-circle';
+      currentIndex = $images.length - 1;
     } else {
       $images[currentIndex].classList.add('hidden');
       $images[currentIndex - 1].classList.remove('hidden');
       $dots[currentIndex].className = 'far fa-circle';
       $dots[currentIndex - 1].className = 'fas fa-circle';
+      currentIndex = currentIndex - 1;
     }
   }
   if (event.target === $nextArrow) {
@@ -69,7 +68,6 @@ function handleClickArrows(event) {
       $dots[currentIndex + 1].className = 'fas fa-circle';
     }
   }
-  // setInterval(start(), 3000);
 }
 
 $previousArrow.addEventListener('click', handleClickArrows);
@@ -78,11 +76,8 @@ $nextArrow.addEventListener('click', handleClickArrows);
 function handleClickDots(event) {
   $images[currentIndex].classList.add('hidden');
   $dots[currentIndex].className = 'far fa-circle';
-  // console.log('first current index', currentIndex);
   currentIndex = $dots.indexOf(event.target);
   start = $images[currentIndex];
-  // console.log('start', start);
-  // console.log('current index', currentIndex);
   start.classList.remove('hidden');
   event.target.className = 'fas fa-circle';
 }

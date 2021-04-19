@@ -1,13 +1,12 @@
 /* exported reverseWords */
-function reverseWords(string) {
-  var array = string.split(' ');
-  // console.log('array:', array);
-  // var reverse = '';
-  for (var i = 0; i < array.length; i++) {
-    for (var k = array[i].length - 1; k >= 0; k--) {
-      // reverse += array[i][k];
-      // console.log(reverse);
-      // console.log(array);
-    }
-  }
-}
+// function reverseWords(string) {
+
+// }
+
+// make string into an array of strings
+// check each word and make each word into an array (split)
+// reverse all the characters (reverse)
+// turn it back into a string (join)
+// reassign the new value to the index's value
+// join the result of the array separated by spaces
+// return the result

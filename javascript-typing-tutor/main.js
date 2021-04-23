@@ -1,33 +1,36 @@
-var $currentLetter = document.querySelector('.current');
-// var $phrase = document.getElementById('phrase-string');
+var $phrase = document.getElementById('phrase-string');
+var string = 'whatever you are, be a good one.';
+var phraseArray = string.split('');
+// console.log('phrase array:', phraseArray);
+
+function appendPhrase(string) {
+  for (var i = 0; i < phraseArray.length; i++) {
+    var charSpan = document.createElement('span');
+    charSpan.textContent = phraseArray[i];
+    $phrase.append(charSpan);
+  }
+}
+
+appendPhrase(string);
+
 var $spans = document.querySelectorAll('span');
 // console.log('$spans:', $spans);
-// console.log('$currentLetter', $currentLetter);
-// console.log('$phrase', $phrase);
 
+var currentChar = $phrase.firstElementChild;
+currentChar.classList.add('current');
+// console.log('current char:', currentChar);
 var spanArray = Array.from($spans);
-// console.log('spanArray:', spanArray);
-var currentIndex = spanArray.indexOf($currentLetter);
-// console.log('currentIndex', currentIndex);
+var currentIndex = spanArray.indexOf(currentChar);
+// console.log('current index:', currentIndex);
 
 function handleKeyDown(event) {
-  var currentChar = spanArray[currentIndex];
-  if (event.key === currentChar.innerText) {
-    // console.log('true');
-    // // console.log('event.key:', event.key);
-    // console.log('currentChar before:', currentChar);
-    currentChar.classList.add('green');
-    currentChar.classList.remove('red');
-    currentChar.classList.remove('current');
+  if (event.key === phraseArray[currentIndex]) {
+    $spans[currentIndex].classList.add('green');
+    $spans[currentIndex].classList.remove('red', 'current');
     currentIndex++;
-    currentChar = spanArray[currentIndex];
-    currentChar.classList.add('current');
-    // console.log('currentChar after:', currentChar);
+    $spans[currentIndex].classList.add('current');
   } else {
-    // console.log('false');
-    // console.log('event.key:', event.key);
-    // console.log('currentChar:', currentChar.innerText);
-    currentChar.classList.add('red');
+    $spans[currentIndex].classList.add('red');
   }
 }
 

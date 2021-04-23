@@ -1,4 +1,4 @@
-.phrase {
+#phrase-string {
   height: 500px;
   display: flex;
   justify-content: center;
@@ -13,16 +13,16 @@ span {
   padding: 5px;
 }
 
-.start {
+.current {
   color: black;
   border-bottom: solid;
 }
 
-.true {
+.green {
   color: green;
 }
 
-.false {
+.red {
   color: red;
 
   /* background-color: rgb(255, 211, 211); */

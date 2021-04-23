@@ -15,17 +15,14 @@ span {
 
 .current {
   color: black;
-  border-bottom: solid;
+  text-decoration: underline;
+  text-underline-position: under;
 }
 
 .green {
   color: green;
-  border: none;
 }
 
 .red {
   color: red;
-
-  /* background-color: rgb(255, 211, 211); */
-  border-bottom: solid red;
 }

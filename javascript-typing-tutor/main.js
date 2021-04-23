@@ -25,7 +25,7 @@ function handleKeyDown(event) {
       $gameOver.classList.remove('hidden');
       $typingPage.classList.add('hidden');
       $spans[0].classList.add('current');
-      $spans[0].classList.remove('green');
+      $spans[0].classList.remove('green', 'red');
       for (var i = 1; i < $spans.length; i++) {
         $spans[i].className = '';
       }

@@ -1,7 +1,6 @@
 var $phrase = document.getElementById('phrase-string');
 var string = 'whatever you are, be a good one.';
 var phraseArray = string.split('');
-// console.log('phrase array:', phraseArray);
 
 function appendPhrase(string) {
   for (var i = 0; i < phraseArray.length; i++) {
@@ -14,17 +13,25 @@ function appendPhrase(string) {
 appendPhrase(string);
 
 var $spans = document.querySelectorAll('span');
-// console.log('$spans:', $spans);
 
 var currentChar = $phrase.firstElementChild;
 currentChar.classList.add('current');
-// console.log('current char:', currentChar);
 var spanArray = Array.from($spans);
 var currentIndex = spanArray.indexOf(currentChar);
-// console.log('current index:', currentIndex);
 
 function handleKeyDown(event) {
   if (event.key === phraseArray[currentIndex]) {
+    if (currentIndex === phraseArray.length - 1) {
+      $gameOver.classList.remove('hidden');
+      $typingPage.classList.add('hidden');
+      $spans[0].classList.add('current');
+      $spans[0].classList.remove('green');
+      for (var i = 1; i < $spans.length; i++) {
+        $spans[i].className = '';
+      }
+      currentIndex = 0;
+      return;
+    }
     $spans[currentIndex].classList.add('green');
     $spans[currentIndex].classList.remove('red', 'current');
     currentIndex++;
@@ -36,17 +43,19 @@ function handleKeyDown(event) {
 
 window.addEventListener('keydown', handleKeyDown);
 
-// select parent div with class phrase to put an event listener on it
-// for each character, check if the user input is the same as the text content for that span
-//   + if its equal, style it as correct
-//   + if its not equal style it as incorrect
-// find length of characters
-// store number of how many are correct
-// divide length by number correct to get score
-// Send a message to user asking if they want to play again (modal?)
-//   + if yes, start over
-//   + if no, send a message, have a nice day!
-// if character is in focus, class = set
-// if character textContent === event.key class = true
-// if character textContent !== event.key class = false
-// only check one span at a time
+var $gameOver = document.querySelector('.game-over');
+var $typingPage = document.querySelector('.typing');
+var $container = document.querySelector('.container');
+var $views = document.querySelectorAll('.view');
+
+function clickButtons(event) {
+  for (var i = 0; i < $views.length; i++) {
+    if (event.target.dataset.view === $views[i].dataset.view) {
+      $views[i].classList.remove('hidden');
+    } else {
+      $views[i].classList.add('hidden');
+    }
+  }
+}
+
+$container.addEventListener('click', clickButtons);

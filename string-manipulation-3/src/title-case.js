@@ -34,3 +34,9 @@ function titleCase(title) {
 }
 // console.log('specialCase array:', obj.specialCase);
 // console.log('minorWords array:', obj.minorWords);
+
+// for (var i = 0; i < titleArray.length; i++) {
+//   for (var k = 0; k < titleArray[i].length; k++) {
+//     if ()
+//   }
+// }

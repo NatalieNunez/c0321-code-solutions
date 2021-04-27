@@ -1,0 +1,60 @@
+body {
+  color: white;
+  background-color: #252525;
+}
+
+#phrase-string {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  font-family: monospace;
+  font-weight: 600;
+  outline: none;
+}
+
+h1 {
+  padding: 10rem;
+  font-size: 5rem;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+span {
+  padding: 5px;
+}
+
+.current {
+  color: white;
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+button {
+  font-size: 3rem;
+  padding: 1rem;
+  width: 12rem;
+  margin: 10rem auto;
+  color: crimson;
+  background-color: white;
+  outline: none;
+}
+
+button.choose {
+  margin: 10rem 5rem;
+}
+
+button:hover {
+  font-size: 3.2rem;
+  padding: 1.2rem;
+  width: 12.2rem;
+}

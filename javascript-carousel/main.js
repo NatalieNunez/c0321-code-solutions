@@ -4,19 +4,37 @@ var $nextArrow = document.getElementById('nextImg');
 var $dots = document.querySelectorAll('i');
 var $progressDots = document.querySelector('.progress-dots');
 
-var start = null;
-var currentIndex = null;
+var start = null; // rethink using
+var currentIndex = null; // rethink using
 
-NodeList.prototype.indexOf = Array.prototype.indexOf;
+// NodeList.prototype.indexOf = Array.prototype.indexOf; // dont use this
 
-for (var i = 0; i < $images.length; i++) {
-  if ($images[i].classList.length === 0) {
-    start = $images[i];
-    currentIndex = $images.indexOf(start);
-  }
-}
+// this is checking which image has no hidden class and setting to start and currentIndex
+// for (var i = 0; i < $images.length; i++) {
+//   if ($images[i].classList.length === 0) {
+//     start = $images[i];
+//     currentIndex = $images.indexOf(start);
+//   }
+// }
 
 setInterval(function start() {
+  // debugger;
+  // var i = 0;
+  // while ($images[i].classList.value === '') {
+  //   if ($images[i] === $images[$images.length - 1]) {
+  //     $images[i].classList.add('hidden');
+  //     $images[0].classList.remove('hidden');
+  //     $dots[i].className = 'far fa-circle';
+  //     $dots[0].className = 'fas fa-circle';
+  //     i = -1;
+  //   } else {
+  //     $images[i].classList.add('hidden');
+  //     $images[i + 1].classList.remove('hidden');
+  //     $dots[i].className = 'far fa-circle';
+  //     $dots[i + 1].className = 'fas fa-circle';
+  //   }
+  //   i++;
+  // }
   if (currentIndex === $images.length - 1) {
     $images[currentIndex].classList.add('hidden');
     $images[0].classList.remove('hidden');
@@ -74,12 +92,19 @@ $previousArrow.addEventListener('click', handleClickArrows);
 $nextArrow.addEventListener('click', handleClickArrows);
 
 function handleClickDots(event) {
-  $images[currentIndex].classList.add('hidden');
-  $dots[currentIndex].className = 'far fa-circle';
-  currentIndex = $dots.indexOf(event.target);
-  start = $images[currentIndex];
-  start.classList.remove('hidden');
-  event.target.className = 'fas fa-circle';
+  for (var i = 0; i < $progressDots.length; i++) {
+    if (event.target === $progressDots[i]) {
+      $images[i].classList.remove('hidden');
+      $dots[i].className = 'far fa-circle';
+
+    }
+  }
+  // $images[currentIndex].classList.add('hidden');
+  // $dots[currentIndex].className = 'far fa-circle';
+  // currentIndex = $dots.indexOf(event.target);
+  // start = $images[currentIndex];
+  // start.classList.remove('hidden');
+  // event.target.className = 'fas fa-circle';
 }
 
 $progressDots.addEventListener('click', handleClickDots);

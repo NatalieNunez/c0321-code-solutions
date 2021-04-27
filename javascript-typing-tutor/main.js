@@ -2,9 +2,9 @@ var $phrase = document.getElementById('phrase-string');
 var typingString = 'whatever you are, be a good one.';
 
 function appendPhrase(string) {
-  for (var i = 0; i < typingString.length; i++) {
+  for (var i = 0; i < string.length; i++) {
     var charSpan = document.createElement('span');
-    charSpan.textContent = typingString[i];
+    charSpan.textContent = string[i];
     $phrase.append(charSpan);
   }
 }

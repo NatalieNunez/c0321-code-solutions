@@ -1,16 +1,15 @@
 var $phrase = document.getElementById('phrase-string');
-var string = 'whatever you are, be a good one.';
-var phraseArray = string.split('');
+var typingString = 'whatever you are, be a good one.';
 
 function appendPhrase(string) {
-  for (var i = 0; i < phraseArray.length; i++) {
+  for (var i = 0; i < typingString.length; i++) {
     var charSpan = document.createElement('span');
-    charSpan.textContent = phraseArray[i];
+    charSpan.textContent = typingString[i];
     $phrase.append(charSpan);
   }
 }
 
-appendPhrase(string);
+appendPhrase(typingString);
 
 var $spans = document.querySelectorAll('span');
 
@@ -20,8 +19,8 @@ var spanArray = Array.from($spans);
 var currentIndex = spanArray.indexOf(currentChar);
 
 function handleKeyDown(event) {
-  if (event.key === phraseArray[currentIndex]) {
-    if (currentIndex === phraseArray.length - 1) {
+  if (event.key === typingString[currentIndex]) {
+    if (currentIndex === typingString.length - 1) {
       $gameOver.classList.remove('hidden');
       $typingPage.classList.add('hidden');
       $spans[0].classList.add('current');

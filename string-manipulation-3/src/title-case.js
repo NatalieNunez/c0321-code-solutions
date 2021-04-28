@@ -27,10 +27,15 @@ function titleCase(title) {
   var titleArray = title.split(' ');
   // console.log('titleArray:', titleArray);
   for (var i = 0; i < titleArray.length; i++) {
-    if (obj.minorWords.includes(titleArray[i].toLowerCase()) && !titleArray[i] !== titleArray[0]) {
+    if (obj.minorWords.includes(titleArray[i].toLowerCase()) && titleArray[i] !== titleArray[0]) {
       titleArray[i] = titleArray[i].toLowerCase();
     }
+    for (var k = 0; k < titleArray[i].length; k++) {
+      titleArray[i][0] = titleArray[i][0].toUpperCase();
+      titleArray[i][k] = titleArray[i][k].toLowerCase();
+    }
   }
+  return titleArray;
 }
 // console.log('specialCase array:', obj.specialCase);
 // console.log('minorWords array:', obj.minorWords);

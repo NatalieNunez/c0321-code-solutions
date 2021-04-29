@@ -40,7 +40,7 @@ function crudNotes() {
       }
     });
   } else {
-    console.log('error: inalid input');
+    console.log('error: invalid input');
   }
 }
 

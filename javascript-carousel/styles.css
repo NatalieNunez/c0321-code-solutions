@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.col-15,
+.col-70,
+.col-full {
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  margin: auto;
+  font-size: 3em;
+  color: gray;
+}
+
+span:hover {
+  color: black;
+  font-size: 4em;
+}
+
+.col-15 {
+  flex-basis: 15%;
+}
+
+.col-70 {
+  flex-basis: 60%;
+}
+
+.col-full {
+  flex-basis: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+i {
+  margin: 0.5rem;
+  font-size: 1.5em;
+}

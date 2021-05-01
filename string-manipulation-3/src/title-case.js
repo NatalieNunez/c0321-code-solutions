@@ -24,18 +24,29 @@ var obj = {
 };
 
 function titleCase(title) {
-  var titleArray = title.split(' ');
-  // console.log('titleArray:', titleArray);
-  for (var i = 0; i < titleArray.length; i++) {
+  // debugger;
+  const titleArray = title.split(' ');
+  let string = '';
+  const arr = [];
+  for (let i = 0; i < titleArray.length; i++) {
     if (obj.minorWords.includes(titleArray[i].toLowerCase()) && titleArray[i] !== titleArray[0]) {
-      titleArray[i] = titleArray[i].toLowerCase();
+      string += titleArray[i].toLowerCase();
+      // string = '';
+    } else {
+      string += titleArray[i][0].toUpperCase();
     }
-    for (var k = 0; k < titleArray[i].length; k++) {
-      titleArray[i][0] = titleArray[i][0].toUpperCase();
-      titleArray[i][k] = titleArray[i][k].toLowerCase();
+    for (let x = 1; x < titleArray[i].length; x++) {
+      if (obj.minorWords.includes(titleArray[i].toLowerCase())) {
+        string = titleArray[i].toLowerCase();
+      } else {
+        string += titleArray[i][x].toLowerCase();
+      }
     }
+    arr.push(string);
+    string = '';
   }
-  return titleArray;
+  const titleCaseString = arr.join(' ');
+  return titleCaseString;
 }
 // console.log('specialCase array:', obj.specialCase);
 // console.log('minorWords array:', obj.minorWords);

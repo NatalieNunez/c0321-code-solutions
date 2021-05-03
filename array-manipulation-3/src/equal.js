@@ -1,7 +1,7 @@
 /* exported equal */
 function equal(first, second) {
-  const firstString = first.join(' ');
-  const secondString = second.join(' ');
+  const firstString = JSON.stringify(first);
+  const secondString = JSON.stringify(second);
   if (firstString === secondString) {
     return true;
   } else {

@@ -7,13 +7,26 @@ app.listen(3000, () => {
   console.log('Listening on port 3000!');
 });
 
-// const nextId = 1;
+let nextId = 1;
 const grades = {};
+// const gradeArr = [];
 
 app.get('/api/grades', (req, res) => {
   const gradeArr = [];
   for (const key in grades) {
+    // const gradeArr = [];
     gradeArr.push(grades[key]);
   }
   res.json(gradeArr);
+});
+
+const jsonParser = express.json();
+
+app.use(jsonParser);
+
+app.post('/api/grades', (req, res) => {
+  req.body.id = nextId;
+  grades[nextId] = req.body;
+  res.status(201).send(req.body);
+  nextId++;
 });

@@ -9,7 +9,6 @@ app.listen(3000, () => {
 
 let nextId = 1;
 const grades = {};
-// const gradeArr = [];
 
 app.get('/api/grades', (req, res) => {
   const gradeArr = [];

@@ -1,7 +1,6 @@
 const express = require('express');
 const jsonObj = require('./data.json');
 const fs = require('fs');
-// const { error } = require('console');
 const app = express();
 
 app.listen(3000, () => {
@@ -64,6 +63,27 @@ app.delete('/api/notes/:id', (req, res) => {
         res.status(500).json({ error: 'An unexpected error occurred.' });
       } else {
         res.status(204).send();
+      }
+    });
+  }
+});
+
+app.put('/api/notes/:id', (req, res) => {
+  const id = Number(req.params.id);
+  if (id !== parseInt(id, 10) || !id > 0) {
+    res.status(400).json({ error: 'id must be a positive integer' });
+  } else if (!req.body.content) {
+    res.status(400).json({ error: 'content is a required field' });
+  } else if (!jsonObj.notes[id]) {
+    res.status(404).json({ error: `cannot find note with the id ${id}` });
+  } else {
+    jsonObj.notes[id].content = req.body.content;
+    const updateNote = JSON.stringify(jsonObj, null, 2);
+    fs.writeFile('./data.json', updateNote, err => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(200).json(jsonObj.notes[id]);
       }
     });
   }

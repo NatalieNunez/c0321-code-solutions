@@ -50,14 +50,21 @@ app.post('/api/notes', (req, res) => {
   }
 });
 
-// app.delete('/api/notes/:id', (req, res) => {
-//   const id = req.params.id;
-//   if (Number(id) !== parseInt(id, 10) || !Number(id) > 0) {
-//     res.status(400).json({ error: 'id must be a positive integer' });
-//   } else if (!jsonObj.notes[req.params.id]) {
-//     res.status(404).json({ error: `cannot find note with the id ${id}` });
-//   } else {
-//     delete jsonObj.notes[id];
-//     res.status(204);
-//   }
-// });
+app.delete('/api/notes/:id', (req, res) => {
+  const id = Number(req.params.id);
+  if (id !== parseInt(id, 10) || !id > 0) {
+    res.status(400).json({ error: 'id must be a positive integer' });
+  } else if (!jsonObj.notes[req.params.id]) {
+    res.status(404).json({ error: `cannot find note with the id ${id}` });
+  } else {
+    delete jsonObj.notes[id];
+    const deleteNote = JSON.stringify(jsonObj, null, 2);
+    fs.writeFile('./data.json', deleteNote, err => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(204).send();
+      }
+    });
+  }
+});

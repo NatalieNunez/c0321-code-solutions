@@ -17,10 +17,11 @@ app.get('/api/notes', (req, res) => {
 
 app.get('/api/notes/:id', (req, res) => {
   const id = Number(req.params.id);
-  // console.log('req.params.id', typeof id);
   if (id !== parseInt(id, 10) || !id > 0) {
     res.status(400).json({ error: 'id must be a positive integer' });
-  } else if (Number(jsonObj.notes[id]) === 'undefined') {
+  } else if (!jsonObj.notes[id]) {
     res.status(404).json({ error: `cannot find note with the id ${id}` });
+  } else {
+    res.status(200).json(jsonObj.notes[id]);
   }
 });

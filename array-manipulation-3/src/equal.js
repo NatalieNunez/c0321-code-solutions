@@ -1,10 +1,18 @@
 /* exported equal */
 function equal(first, second) {
-  const firstString = JSON.stringify(first);
-  const secondString = JSON.stringify(second);
-  if (firstString === secondString) {
-    return true;
+  let result;
+  if (first.length === second.length) {
+    for (let i = 0; i < first.length; i++) {
+      if (first[i] === second[i]) {
+        result = true;
+      } else {
+        result = false;
+        return result;
+      }
+    }
   } else {
-    return false;
+    result = false;
+    return result;
   }
+  return result;
 }

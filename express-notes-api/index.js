@@ -1,11 +1,16 @@
 const express = require('express');
 const jsonObj = require('./data.json');
+const fs = require('fs');
+// const { error } = require('console');
 const app = express();
 
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
   console.log('Listening on port 3000!');
 });
+
+const jsonMiddleware = express.json();
+app.use(jsonMiddleware);
 
 app.get('/api/notes', (req, res) => {
   const notesArray = [];
@@ -26,17 +31,24 @@ app.get('/api/notes/:id', (req, res) => {
   }
 });
 
-// app.post('/api/notes', (req, res) => {
-//   if (!req.body.content) {
-//     res.status(400).json({ error: 'content is a required field' });
-//   // } else if (!success) {
-//   //   res.status(500).json({ error: 'An unexpected error occurred.' });
-//   } else {
-//     jsonObj.notes.id = jsonObj.nextId;
-//     jsonObj.notes.content = req.body;
-//     res.status(201).json(jsonObj);
-//   }
-// });
+app.post('/api/notes', (req, res) => {
+  if (!req.body.content) {
+    res.status(400).json({ error: 'content is a required field' });
+  } else if (req.body.content) {
+    const id = jsonObj.nextId;
+    jsonObj.notes[id] = req.body;
+    jsonObj.notes[id].id = id;
+    jsonObj.nextId++;
+    const newNote = JSON.stringify(jsonObj, null, 2);
+    fs.writeFile('./data.json', newNote, err => {
+      if (err) {
+        res.status(500).json({ error: 'An unexpected error occurred.' });
+      } else {
+        res.status(201).json(req.body);
+      }
+    });
+  }
+});
 
 // app.delete('/api/notes/:id', (req, res) => {
 //   const id = req.params.id;

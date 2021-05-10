@@ -21,10 +21,9 @@ app.get('/api/grades', (req, res, next) => {
     select *
       from "grades"
     `;
-  // const params = 'something';
   db.query(sql)
     .then(result => {
-      res.json(result.fields);
+      res.json(result.rows);
       res.status(200);
     })
     .catch(err => {

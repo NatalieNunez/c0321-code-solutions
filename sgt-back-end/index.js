@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 const pg = require('pg');
 const db = new pg.Pool({
   connectionString: 'postgres://dev:dev@localhost/studentGradeTable',
@@ -70,28 +71,29 @@ app.post('/api/grades', (req, res, next) => {
     });
 });
 
-// app.put('/api/grades/:gradeId', (req, res, next) => {
-//   const gradeId = parseInt(req.params.gradeId, 10);
-//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
-//     res.status(400).json({
-//       error: 'gradeId must be a positive integer.'
-//     });
-//     return;
-//   }
+app.put('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({
+      error: 'gradeId must be a positive integer.'
+    });
 
-//   const sql = `
-//   update "grades"
-//   set "name" = $1,
-//       "course" = $2,
-//       "score" = $3
-//   where "gradeId" = $4
-//   returning *
-//   `;
-//   const params = [gradeId];
-//   const values = [req.body.name, req.body.course, req.body.score];
-//   const nameValue = req.body.name;
-//   const courseValue = req.body.course;
-//   const scoreValue = req.body.score;
+  }
+
+    // const sql = `
+    // update "grades"
+    // set "name" = $1,
+    //     "course" = $2,
+    //     "score" = $3
+    // where "gradeId" = $4
+    // returning *
+    // `;
+
+  //   const params = [gradeId];
+  //   const values = [req.body.name, req.body.course, req.body.score];
+  //   const nameValue = req.body.name;
+  //   const courseValue = req.body.course;
+  //   const scoreValue = req.body.score;
 
 //   db.query(sql, params, values)
 //     .then(result => {
@@ -114,4 +116,4 @@ app.post('/api/grades', (req, res, next) => {
 //         error: 'An Unexpected error occurred.'
 //       });
 //     });
-// });
+});

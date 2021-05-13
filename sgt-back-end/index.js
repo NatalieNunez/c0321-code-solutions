@@ -71,31 +71,31 @@ app.post('/api/grades', (req, res, next) => {
     });
 });
 
-app.put('/api/grades/:gradeId', (req, res, next) => {
-  const gradeId = parseInt(req.params.gradeId, 10);
-  if (!Number.isInteger(gradeId) || gradeId <= 0) {
-    res.status(400).json({
-      error: 'gradeId must be a positive integer.'
-    });
+// app.put('/api/grades/:gradeId', (req, res, next) => {
+//   const gradeId = parseInt(req.params.gradeId, 10);
+//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
+//     res.status(400).json({
+//       error: 'gradeId must be a positive integer.'
+//     });
 
-  }
+//   }
 
-    // const sql = `
-    // update "grades"
-    // set "name" = $1,
-    //     "course" = $2,
-    //     "score" = $3
-    // where "gradeId" = $4
-    // returning *
-    // `;
+//     const sql = `
+//     update "grades"
+//     set "name" = $1,
+//         "course" = $2,
+//         "score" = $3
+//     where "gradeId" = $4
+//     returning *
+//     `;
 
   //   const params = [gradeId];
-  //   const values = [req.body.name, req.body.course, req.body.score];
+  //   const set = [req.body.name, req.body.course, req.body.score];
   //   const nameValue = req.body.name;
   //   const courseValue = req.body.course;
   //   const scoreValue = req.body.score;
 
-//   db.query(sql, params, values)
+//   db.query(sql, params)
 //     .then(result => {
 //       const grade = result.rows[0];
 //       if (!nameValue || !courseValue || !scoreValue) {
@@ -116,4 +116,24 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
 //         error: 'An Unexpected error occurred.'
 //       });
 //     });
-});
+// });
+
+// app.delete('/api/grades/:gradeId', (req, res, next) => {
+//   const gradeId = parseInt(req.params.gradeId, 10);
+//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
+//     // there is no way that a matching grade could be found
+//     // so we immediately respond to the client and STOP the code
+//     // with a return statement
+//     res.status(400).json({
+//       error: '"gradeId" must be a positive integer'
+//     });
+//     return;
+//   }
+
+//   const sql = `
+//   delete from "grades"
+//   where "gradeId" = $1
+//   `;
+
+//   const params
+// })

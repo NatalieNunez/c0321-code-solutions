@@ -11,7 +11,7 @@ const express = require('express');
 const app = express();
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
-  console.log('Listening on port 3000!');
+  // console.log('Listening on port 3000!');
 });
 
 const jsonMiddleware = express.json();
@@ -71,52 +71,52 @@ app.post('/api/grades', (req, res, next) => {
     });
 });
 
-// app.put('/api/grades/:gradeId', (req, res, next) => {
-//   const gradeId = parseInt(req.params.gradeId, 10);
-//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
-//     res.status(400).json({
-//       error: 'gradeId must be a positive integer.'
-//     });
+app.put('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({
+      error: 'gradeId must be a positive integer.'
+    });
+  }
 
-//   }
+  const sql = `
+  update "grades"
+    set "name" = $1,
+      "course" = $2,
+      "score" = $3
+    where "gradeId" = $4
+    returning *
+  `;
 
-//     const sql = `
-//     update "grades"
-//     set "name" = $1,
-//         "course" = $2,
-//         "score" = $3
-//     where "gradeId" = $4
-//     returning *
-//     `;
+  const values = [req.body.name, req.body.course, req.body.score, gradeId];
+  const nameValue = req.body.name;
+  const courseValue = req.body.course;
+  const scoreValue = req.body.score;
 
-  //   const params = [gradeId];
-  //   const set = [req.body.name, req.body.course, req.body.score];
-  //   const nameValue = req.body.name;
-  //   const courseValue = req.body.course;
-  //   const scoreValue = req.body.score;
-
-//   db.query(sql, params)
-//     .then(result => {
-//       const grade = result.rows[0];
-//       if (!nameValue || !courseValue || !scoreValue) {
-//         res.status(400).json({
-//           error: 'Name, course, and score are all required contents.'
-//         });
-//       } else if (!grade) {
-//         res.status(404).json({
-//           error: `Cannot find grade with "gradeId" ${gradeId}`
-//         });
-//       } else {
-//         res.status(200).json(result.rows[0]);
-//       }
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       res.status(500).json({
-//         error: 'An Unexpected error occurred.'
-//       });
-//     });
-// });
+  db.query(sql, values)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({
+          error: `Cannot find grade with gradeId ${gradeId}`
+        });
+      } else {
+        res.status(200).json(result.rows[0]);
+      }
+    })
+    .catch(err => {
+      if (!nameValue || !courseValue || !scoreValue) {
+        res.status(400).json({
+          error: 'Name, course, and score are all required contents.'
+        });
+      } else {
+        console.error(err);
+        res.status(500).json({
+          error: 'An Unexpected error occurred.'
+        });
+      }
+    });
+});
 
 // app.delete('/api/grades/:gradeId', (req, res, next) => {
 //   const gradeId = parseInt(req.params.gradeId, 10);

@@ -1,0 +1,41 @@
+.cold {
+  background-color: rgb(53, 22, 92);
+  color: white;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.cool {
+  background-color: rgb(107, 73, 150);
+  color: white;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.tepid {
+  background-color: rgb(199, 110, 95);
+  color: white;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.warm {
+  background-color: rgb(206, 148, 94);
+  color: black;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.hot {
+  background-color: rgb(228, 219, 92);
+  color: black;
+  padding: 5px 10px;
+  outline: none;
+}
+
+.nuclear {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  padding: 5px 10px;
+  outline: none;
+}

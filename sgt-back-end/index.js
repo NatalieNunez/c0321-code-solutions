@@ -11,7 +11,7 @@ const express = require('express');
 const app = express();
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
-  // console.log('Listening on port 3000!');
+  console.log('Listening on port 3000!');
 });
 
 const jsonMiddleware = express.json();
@@ -77,6 +77,7 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     res.status(400).json({
       error: 'gradeId must be a positive integer.'
     });
+    return;
   }
 
   const sql = `
@@ -121,11 +122,8 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
 // app.delete('/api/grades/:gradeId', (req, res, next) => {
 //   const gradeId = parseInt(req.params.gradeId, 10);
 //   if (!Number.isInteger(gradeId) || gradeId <= 0) {
-//     // there is no way that a matching grade could be found
-//     // so we immediately respond to the client and STOP the code
-//     // with a return statement
 //     res.status(400).json({
-//       error: '"gradeId" must be a positive integer'
+//       error: 'gradeId must be a positive integer'
 //     });
 //     return;
 //   }
@@ -133,7 +131,20 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
 //   const sql = `
 //   delete from "grades"
 //   where "gradeId" = $1
+//   returning *
 //   `;
 
-//   const params
-// })
+//   const params = [gradeId];
+//   // console.log(params);
+
+//   db.query(sql, params)
+//     .then(result => {
+//         res.status(204);
+//     })
+//     .catch(err => {
+//       console.error(err);
+//       res.status(500).json({
+//         error: 'An Unexpected error occurred.'
+//       });
+//     });
+// });

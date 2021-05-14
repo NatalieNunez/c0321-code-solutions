@@ -1,0 +1,36 @@
+.cold {
+  background-color: rgb(53, 22, 92);
+}
+
+.cool {
+  background-color: rgb(107, 73, 150);
+}
+
+.tepid {
+  background-color: rgb(199, 110, 95);
+}
+
+.warm {
+  background-color: rgb(206, 148, 94);
+}
+
+.hot {
+  background-color: rgb(228, 219, 92);
+}
+
+.nuclear {
+  background-color: rgb(255, 255, 255);
+}
+
+.button {
+  padding: 5px 10px;
+  outline: none;
+}
+
+.cool-text {
+  color: white;
+}
+
+.hot-text {
+  color: black;
+}

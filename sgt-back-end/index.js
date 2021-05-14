@@ -135,7 +135,6 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
 //   `;
 
 //   const params = [gradeId];
-//   // console.log(params);
 
 //   db.query(sql, params)
 //     .then(result => {

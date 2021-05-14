@@ -15,27 +15,27 @@ class HotButton extends React.Component {
     const isClicked = this.state.isClicked;
     if (isClicked < 4) {
       return (
-        <button className={ 'cold' } onClick={this.handleClick}>Hot Button</button>
+        <button className={ 'cold button cool-text' } onClick={this.handleClick}>Hot Button</button>
       );
     } else if (isClicked >= 4 && isClicked < 7) {
       return (
-        <button className={ 'cool' } onClick={this.handleClick}>Hot Button</button>
+        <button className={ 'cool button cool-text' } onClick={this.handleClick}>Hot Button</button>
       );
     } else if (isClicked >= 7 && isClicked < 10) {
       return (
-        <button className={ 'tepid' } onClick={this.handleClick}>Hot Button</button>
+        <button className={ 'tepid button cool-text' } onClick={this.handleClick}>Hot Button</button>
       );
     } else if (isClicked >= 10 && isClicked < 13) {
       return (
-        <button className={ 'warm' } onClick={this.handleClick}>Hot Button</button>
+        <button className={ 'warm button hot-text' } onClick={this.handleClick}>Hot Button</button>
       );
     } else if (isClicked >= 13 && isClicked < 16) {
       return (
-        <button className={ 'hot' } onClick={this.handleClick}>Hot Button</button>
+        <button className={ 'hot button hot-text' } onClick={this.handleClick}>Hot Button</button>
       );
     } else {
       return (
-        <button className={ 'nuclear' } onClick={this.handleClick}>Hot Button</button>
+        <button className={ 'nuclear button hot-text' } onClick={this.handleClick}>Hot Button</button>
       );
     }
   }

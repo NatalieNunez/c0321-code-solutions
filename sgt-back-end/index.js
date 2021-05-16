@@ -119,31 +119,38 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     });
 });
 
-// app.delete('/api/grades/:gradeId', (req, res, next) => {
-//   const gradeId = parseInt(req.params.gradeId, 10);
-//   if (!Number.isInteger(gradeId) || gradeId <= 0) {
-//     res.status(400).json({
-//       error: 'gradeId must be a positive integer'
-//     });
-//     return;
-//   }
+app.delete('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = parseInt(req.params.gradeId, 10);
+  if (!Number.isInteger(gradeId) || gradeId <= 0) {
+    res.status(400).json({
+      error: 'gradeId must be a positive integer'
+    });
+    return;
+  }
 
-//   const sql = `
-//   delete from "grades"
-//   where "gradeId" = $1
-//   returning *
-//   `;
+  const sql = `
+  delete from "grades"
+  where "gradeId" = $1
+  returning *
+  `;
 
-//   const params = [gradeId];
+  const params = [gradeId];
 
-//   db.query(sql, params)
-//     .then(result => {
-//         res.status(204);
-//     })
-//     .catch(err => {
-//       console.error(err);
-//       res.status(500).json({
-//         error: 'An Unexpected error occurred.'
-//       });
-//     });
-// });
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({
+          error: `Cannot find grade with gradeId ${gradeId}`
+        });
+      } else {
+        res.status(204).json(grade);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An Unexpected error occurred.'
+      });
+    });
+});

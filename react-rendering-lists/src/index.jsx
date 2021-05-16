@@ -1,25 +1,26 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-// function PokemonList(props) {
-//   const pokemon = props.pokemon;
-//   const pokemonListItems = pokemon.map(pokeObj =>
-//     <PokemonListItem key={ pokeObj.number }
-//     name={pokeObj.name} />
-//   );
-//   return (
-//       <ul>
-//       {pokemonListItems}
-//     </ul>
-//   );
-// }
+const pokedex = [
+  { number: '001', name: 'Bulbasaur' },
+  { number: '004', name: 'Charmander' },
+  { number: '007', name: 'Squirtle' },
+  { number: '025', name: 'Pikachu' },
+  { number: '039', name: 'Jigglypuff' }
+];
 
-// const pokedex = [
-//   { number: '001', name: 'Bulbasaur' },
-//   { number: '004', name: 'Charmander' },
-//   { number: '007', name: 'Squirtle' },
-//   { number: '025', name: 'Pikachu' },
-//   { number: '039', name: 'Jigglypuff' }
-// ];
+function PokemonList(props) {
+  const pokemon = props.pokedex;
+  const pokemonListItems = pokemon.map(pokeObj =>
+    <li key={ pokeObj.number }>
+    {pokeObj.name}
+    </li>
+  );
+  return (
+    <ul>{pokemonListItems}</ul>
+  );
+}
 
-// ReactDOM.render(<PokemonList pokedex={pokedex} />, document.getElementById('root'));
+ReactDOM.render(<PokemonList pokedex={pokedex} />,
+  document.getElementById('root')
+);

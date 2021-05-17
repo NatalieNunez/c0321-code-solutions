@@ -25,7 +25,6 @@ app.get('/api/grades', (req, res, next) => {
   db.query(sql)
     .then(result => {
       res.json(result.rows);
-      res.status(200);
     })
     .catch(err => {
       console.error(err);
@@ -46,6 +45,13 @@ app.post('/api/grades', (req, res, next) => {
   const courseValue = req.body.course;
   const scoreValue = req.body.score;
 
+  if (!nameValue || !courseValue || !scoreValue) {
+    res.status(400).json({
+      error: 'Name, course, and score are all required contents.'
+    });
+    return;
+  }
+
   db.query(sql, values)
     .then(result => {
       if (req.body.score > 100 || req.body.score < 1) {
@@ -58,24 +64,29 @@ app.post('/api/grades', (req, res, next) => {
       }
     })
     .catch(err => {
-      if (!nameValue || !courseValue || !scoreValue) {
-        res.status(400).json({
-          error: 'Name, course, and score are all required contents.'
-        });
-      } else {
-        console.error(err);
+      console.error(err);
         res.status(500).json({
           error: 'An Unexpected error occurred.'
         });
-      }
     });
 });
 
 app.put('/api/grades/:gradeId', (req, res, next) => {
   const gradeId = parseInt(req.params.gradeId, 10);
+  const values = [req.body.name, req.body.course, req.body.score, gradeId];
+  const nameValue = req.body.name;
+  const courseValue = req.body.course;
+  const scoreValue = req.body.score;
+
   if (!Number.isInteger(gradeId) || gradeId <= 0) {
     res.status(400).json({
       error: 'gradeId must be a positive integer.'
+    });
+    return;
+  }
+  if (!nameValue || !courseValue || !scoreValue) {
+    res.status(400).json({
+      error: 'Name, course, and score are all required contents.'
     });
     return;
   }
@@ -89,11 +100,6 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
     returning *
   `;
 
-  const values = [req.body.name, req.body.course, req.body.score, gradeId];
-  const nameValue = req.body.name;
-  const courseValue = req.body.course;
-  const scoreValue = req.body.score;
-
   db.query(sql, values)
     .then(result => {
       const grade = result.rows[0];
@@ -106,16 +112,10 @@ app.put('/api/grades/:gradeId', (req, res, next) => {
       }
     })
     .catch(err => {
-      if (!nameValue || !courseValue || !scoreValue) {
-        res.status(400).json({
-          error: 'Name, course, and score are all required contents.'
-        });
-      } else {
-        console.error(err);
+      console.error(err);
         res.status(500).json({
           error: 'An Unexpected error occurred.'
         });
-      }
     });
 });
 

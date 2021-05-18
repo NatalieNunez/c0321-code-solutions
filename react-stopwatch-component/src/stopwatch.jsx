@@ -3,29 +3,59 @@ import React from 'react';
 class StopWatch extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { mode: 'pause' };
-    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      running: false,
+      count: 0
+    };
+    this.handleTimer = this.handleTimer.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
-  handleClick(event) {
-    if (event.target.id === 'watch-face' && this.state.mode === 'pause') {
-      this.setState({ mode: 'reset' });
-    } else if (this.state.mode === 'play') {
-      this.setState({ mode: 'pause' });
-    } else if (this.state.mode === 'pause') {
-      this.setState({ mode: 'play' });
+  handleTimer() {
+    if (!this.state.running) {
+      this.timerId = setInterval(() => {
+        this.setState({
+          running: true,
+          count: this.state.count + 1
+        });
+      }, 1000);
+    } else {
+      clearInterval(this.timerId);
+      this.setState({
+        running: false,
+        count: this.state.count
+      });
+    }
+  }
+
+  reset() {
+    if (!this.state.running) {
+      clearInterval(this.timerId);
+      this.setState({ count: 0 });
     }
   }
 
   render() {
-    return (
-      <>
-        <div id='watch-face' onClick={this.handleClick}>
-          <div></div>
-        </div>
-        <span></span>
-      </>
-    );
+    const isRunning = this.state.running;
+    if (isRunning) {
+      return (
+        <>
+          <div className='watch-face' onClick={this.reset}>
+            <h2>{this.state.count}</h2>
+          </div>
+          <i className='fas fa-pause' onClick={this.handleTimer}></i>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className='watch-face' onClick={this.reset}>
+            <h2>{this.state.count}</h2>
+          </div>
+          <i className='fas fa-play' onClick={this.handleTimer}></i>
+        </>
+      );
+    }
   }
 
 }

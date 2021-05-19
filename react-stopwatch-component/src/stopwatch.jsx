@@ -37,25 +37,14 @@ class StopWatch extends React.Component {
 
   render() {
     const isRunning = this.state.running;
-    if (isRunning) {
-      return (
-        <>
-          <div className='watch-face' onClick={this.reset}>
-            <h2>{this.state.count}</h2>
-          </div>
-          <i className='fas fa-pause' onClick={this.handleTimer}></i>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <div className='watch-face' onClick={this.reset}>
-            <h2>{this.state.count}</h2>
-          </div>
-          <i className='fas fa-play' onClick={this.handleTimer}></i>
-        </>
-      );
-    }
+    return (
+      <>
+        <div className='watch-face' onClick={this.reset}>
+          <h2>{this.state.count}</h2>
+        </div>
+        <i className={isRunning ? 'fas fa-pause' : 'fas fa-play'} onClick={this.handleTimer}></i>
+      </>
+    );
   }
 
 }

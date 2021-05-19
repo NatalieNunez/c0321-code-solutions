@@ -18,11 +18,3 @@ h2 {
 i {
   margin: 1rem auto;
 }
-
-.fa-play::before {
-  content: "\f04b";
-}
-
-.fa-pause::before {
-  content: "\f04c";
-}

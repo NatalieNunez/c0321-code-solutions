@@ -37,43 +37,41 @@ export default class App extends React.Component {
     })
       .then(res => res.json())
       .then(newTodo => {
-        this.state.todos.push(newTodo);
+        // console.log(newTodo);
+        const newArray = this.state.todos.slice();
+        newArray.push(newTodo);
         this.setState({
-          todos: this.state.todos
+          todos: newArray
         });
       });
   }
 
   toggleCompleted(todoId) {
     let index = null;
-    const newTodo = this.state.todos.map(todo => {
+    for (let i = 0; i < this.state.todos.length; i++) {
+      const todo = this.state.todos[i];
       if (todo.todoId === todoId) {
-        index = this.state.todos.indexOf(todo);
-        const isCompleted = todo.isCompleted;
-        const obj = {
-          isCompleted: !isCompleted,
-          todoId: todoId,
-          task: todo.task,
-          createdAt: todo.createdAt
-        };
-        return obj;
-      } else {
-        return todo;
+        index = i;
       }
-    });
+    }
+    const isCompleted = this.state.todos[index].isCompleted;
+    const update = {
+      isCompleted: !isCompleted
+    };
+
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newTodo[index])
+      body: JSON.stringify(update)
     })
       .then(res => res.json())
-      .then(updatedTodo =>
-        this.setState({
-          todos: newTodo
-        })
-      );
+      .then(updatedTodo => {
+        const newTodos = this.state.todos.slice();
+        newTodos[index] = updatedTodo;
+        this.setState({ todos: newTodos });
+      });
   }
 
   render() {

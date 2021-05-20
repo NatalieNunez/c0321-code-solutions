@@ -36,16 +36,9 @@ app.post('/api/auth/sign-up', (req, res, next) => {
         .then(result => {
           res.status(201).json(result.rows[0]);
         })
-        .catch(err => {
-          console.error(err);
-          res.status(500).json({
-            error: 'An unexpected error occurred.'
-          });
-        });
+        .catch(err => next(err));
     })
-    .catch(err => {
-      console.error(err);
-    });
+    .catch(err => next(err));
 });
 
 app.use(errorMiddleware);

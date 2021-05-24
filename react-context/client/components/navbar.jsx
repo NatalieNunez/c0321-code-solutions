@@ -1,10 +1,8 @@
 import React from 'react';
-import AppContext from '../lib/app-context';
-// import AppContext from '../lib/app-context';
 
 export default class Navbar extends React.Component {
   render() {
-    const { user, handleSignOut } = this.context;
+    const { user, handleSignOut, handleSignIn, route } = this.context;
     return (
       <nav className="navbar navbar-dark bg-dark">
         <div className="container">
@@ -21,10 +19,10 @@ export default class Navbar extends React.Component {
             }
             { user === null &&
               <>
-                <a href="#sign-in" className="btn btn-primary">
+                <a href="#sign-in" className="btn btn-primary" onClick={handleSignIn}>
                   Sign In
                 </a>
-                <a href="#sign-up" className="btn btn-dark">
+                <a href="#sign-up" className="btn btn-dark" onClick={route}>
                   Sign Up
                 </a>
               </>
@@ -35,5 +33,3 @@ export default class Navbar extends React.Component {
     );
   }
 }
-Navbar.contextType = AppContext;
-export { Navbar };

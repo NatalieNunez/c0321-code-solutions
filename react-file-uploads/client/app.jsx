@@ -1,4 +1,5 @@
 import React from 'react';
+// import errorMiddleware from '../server.error-middleware.js';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -7,15 +8,20 @@ export default class App extends React.Component {
   }
 
   handleSubmit(event) {
-    /**
-     * - prevent the browser from performing default form submission behavior
-     * - create a new FormData object, passing in the event.target
-     * - send a POST request to /api/uploads with your FormData object as the body
-     *   no headers or additional fetch configuration is needed, just method and body
-     * - log the response body to the console
-     * - reset the form
-     * - catch any promise rejection
-     */
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch('/api/uploads', {
+      method: 'POST',
+      body: formData
+    })
+      .then(res => res.json())
+      .then(response => {
+        console.log(response);
+        event.target.reset();
+      })
+      .catch(err => {
+        console.error('Error:', err);
+      });
   }
 
   render() {

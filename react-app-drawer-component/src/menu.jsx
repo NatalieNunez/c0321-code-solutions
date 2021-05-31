@@ -14,8 +14,9 @@ class Menu extends React.Component {
     if (event.target.className === 'menu-title') {
       return;
     }
+    const menuOpen = this.state.menuOpen;
     this.setState({
-      menuOpen: false
+      menuOpen: !menuOpen
     });
   }
 
@@ -34,7 +35,7 @@ class Menu extends React.Component {
       );
     } else {
       return (
-        <AppDrawer />
+        <AppDrawer isMenuOpen={this.handleClick}/>
       );
     }
   }

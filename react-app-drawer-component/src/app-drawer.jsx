@@ -1,23 +1,30 @@
 import React from 'react';
+import Menu from './menu';
 
 class AppDrawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isClicked: false };
+    this.state = { menuOpen: false };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
     this.setState({
-      isClicked: true
+      menuOpen: true
     });
   }
 
   render() {
-    const isClicked = this.state.isClicked;
-    if (isClicked) {
+    const menuOpen = this.state.menuOpen;
+    if (menuOpen) {
       return (
-        <div></div>
+        <Menu />
+      );
+    } else {
+      return (
+        <div>
+          <i className="fas fa-bars menu-icon" onClick={this.handleClick}></i>
+        </div>
       );
     }
   }

@@ -9,6 +9,7 @@ import Navbar from './components/navbar';
 import PageContainer from './components/page-container';
 
 export default class App extends React.Component {
+  static contextType = AppContext;
   constructor(props) {
     super(props);
     this.state = {

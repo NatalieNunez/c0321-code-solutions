@@ -1,0 +1,15 @@
+.title {
+  background-color: #ddd8d8;
+}
+
+.title,
+.details {
+  padding: 1rem;
+  width: 50%;
+  font-family: sans-serif;
+  border: 1px solid gray;
+}
+
+.hide {
+  display: none;
+}

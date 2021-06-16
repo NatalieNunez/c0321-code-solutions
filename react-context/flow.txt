@@ -22,10 +22,30 @@ User Can Sign Up
 
 
 User Can Sign In
-  - When the user clicks
+  - When the user inputs a username and password, state gets updated to hold the values inputted
+  by the user. When the user clicks the login button, state gets turned into JSON as the body and
+  a fetch call is sent to the server by checking the action ('sign-in') via props.
+
+  The server's post request handler checks if a username and password were provided and if not, it
+  thows a Client error showing a status of invalid login and a 401 status code. It then queries the
+  database to see if a user with the provided username exists in the users table. If one does not, then
+  a Client error is thrown saying invalid login and a 401 status code. If that user does exist, it then
+  checks if the password provided matches the one in the database. using the verify method of the argon2
+  object. If it doesnt match it throws a Client error invalid login. If it does match it creates a token
+  for the user and responds with the token, userId and username.
+
+  On the client side, it parses the response, checks what the action is and if it isn't 'sign-up', it checks
+  if there is a user and a token and calls the onSignIn method via props passing in the parsed response.
+  handleSignIn sets the token to local storage and updates state to user.
 
 User Can Stay Signed In (even after refresh)
-  -
+  - When the user refreshes the page, it updates state by setting the location to route. It then checks if
+  local storage has a token and sets that to the variable token. If token is truthy, it decodes the token for
+  the user, otherwise it sets the variable user to null. It then updates state with the value of user and
+  schedules a re-render to render the page based on the value of path stored in this.state.route. If there is no
+  user signed in, it renders the Sign-In/Sign-Up page, otherwise it stays on the home page.
 
 User Can Sign Out
-  -
+  - If the user clicks the Sign-Out button in the Navbar component, it calls thr handleSignOut method that is
+  passed via context. The handleSignOut method in the App component removes the token from local storage and
+  then sets state of user to null which then schedules a re-render and renders the sign-in sign-up page.

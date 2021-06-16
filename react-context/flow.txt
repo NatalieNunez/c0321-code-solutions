@@ -1,9 +1,28 @@
 User Can Sign Up
-  -
+  - When the user clicks on the 'Sign Up' link in the Navbar component, it brings
+  the user to the AuthForm component which then checks what the action was based
+  on the path which is 'sign-up'.
+
+  The user then inputs their username and password into the respective fields (which
+  are both required fields), listening for change events. In the handleChange method,
+  it checks the event.target (whether usernmae field or password field), and updates
+  state to contain the values inputted by the user. User clicks on the Register button
+  which triggers the handleSubmit method. The default action is prevented and a POST
+  fetch request is sent to the server with their inputted values.
+
+  The server's post request handler checks if a username and password are provided. If
+  not it throws an error with code 400. If it is provided, it hashes the password with
+  the hash method, queries the database and then inserts the username and hashed password
+  into users table of the database and sends a 201 to show the client the new user has been
+  created as well as the response in JSON.
+
+  Back on the client side it gets the response and parses it, then checks if the action was
+  'sign-up' and if so, it redirects the user to the sign-in page by updating the window.location.hash
+  to be 'sign-in'.
 
 
 User Can Sign In
-  -
+  - When the user clicks
 
 User Can Stay Signed In (even after refresh)
   -

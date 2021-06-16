@@ -1,0 +1,17 @@
+.title {
+  background-color: #ddd8d8;
+  cursor: pointer;
+}
+
+.title,
+.details {
+  padding: 1.5rem;
+  width: 50%;
+  font-family: sans-serif;
+  border: 1px solid gray;
+  margin: 0;
+}
+
+.false {
+  display: none;
+}

@@ -7,6 +7,8 @@ class Carousel extends React.Component {
       index: 0
     };
     this.arrowClicks = this.arrowClicks.bind(this);
+    this.renderProgressDots = this.renderProgressDots.bind(this);
+    this.clickDots = this.clickDots.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +52,23 @@ class Carousel extends React.Component {
     }
   }
 
+  clickDots(event) {
+    this.setState({
+      index: Number(event.target.id)
+    });
+  }
+
+  renderProgressDots() {
+    const dots = this.props.images.map((image, i) => {
+      if (this.state.index === i) {
+        return <i key={i} id={i} className="fas fa-circle progress-dot"></i>;
+      } else {
+        return <i key={i} id={i} className="far fa-circle progress-dot"></i>;
+      }
+    });
+    return dots;
+  }
+
   render() {
     return (
       <>
@@ -60,7 +79,7 @@ class Carousel extends React.Component {
           </div>
           <i className="fas fa-chevron-right" id="right" onClick={this.arrowClicks}></i>
         </div>
-        <div></div>
+        <div className="progress-dots-div" onClick={this.clickDots}>{this.renderProgressDots()}</div>
       </>
     );
   }

@@ -1,5 +1,6 @@
 #root {
   padding: 8rem;
+  background-color: ghostwhite;
 }
 
 img.pokemon-image {
@@ -18,4 +19,16 @@ i#left,
 i#right {
   font-size: 2rem;
   margin: 0 2rem;
+  cursor: pointer;
+}
+
+.progress-dots-div {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.progress-dot {
+  margin: 0 0.5rem;
+  cursor: pointer;
 }

@@ -9,6 +9,20 @@ class Carousel extends React.Component {
     this.arrowClicks = this.arrowClicks.bind(this);
   }
 
+  componentDidMount() {
+    setInterval(() => {
+      if (this.state.index === this.props.images.length - 1) {
+        this.setState({
+          index: 0
+        });
+      } else {
+        this.setState({
+          index: this.state.index + 1
+        });
+      }
+    }, 3000);
+  }
+
   arrowClicks(event) {
     const index = this.state.index;
     if (event.target.id === 'right') {

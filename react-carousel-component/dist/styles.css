@@ -1,0 +1,21 @@
+#root {
+  padding: 8rem;
+}
+
+img.pokemon-image {
+  width: 15rem;
+  height: 15rem;
+  object-fit: contain;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+i#left,
+i#right {
+  font-size: 2rem;
+  margin: 0 2rem;
+}

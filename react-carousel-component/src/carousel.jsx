@@ -39,10 +39,11 @@ class Carousel extends React.Component {
   render() {
     return (
       <>
-        <div>
+        <div className="carousel">
           <i className="fas fa-chevron-left" id="left" onClick={this.arrowClicks}></i>
-          <img src={this.props.images[this.state.index]} alt="pokemon-image" className="pokemon-image" />
-          {/* <img src="https://img.pokemondb.net/sprites/black-white/anim/shiny/zapdos.gif"/> */}
+          <div className="image">
+            <img src={this.props.images[this.state.index]} alt="pokemon-image" className="pokemon-image" />
+          </div>
           <i className="fas fa-chevron-right" id="right" onClick={this.arrowClicks}></i>
         </div>
         <div></div>

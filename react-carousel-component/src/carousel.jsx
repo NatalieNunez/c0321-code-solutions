@@ -9,24 +9,24 @@ class Carousel extends React.Component {
     this.arrowClicks = this.arrowClicks.bind(this);
     this.renderProgressDots = this.renderProgressDots.bind(this);
     this.clickDots = this.clickDots.bind(this);
+    this.timerId = setInterval(this.updateCarousel, 3000);
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      if (this.state.index === this.props.images.length - 1) {
-        this.setState({
-          index: 0
-        });
-      } else {
-        this.setState({
-          index: this.state.index + 1
-        });
-      }
-    }, 3000);
+  updateCarousel() {
+    if (this.state.index === this.props.images.length - 1) {
+      this.setState({
+        index: 0
+      });
+    } else {
+      this.setState({
+        index: this.state.index + 1
+      });
+    }
   }
 
   arrowClicks(event) {
     const index = this.state.index;
+    this.componentDidMount();
     if (event.target.id === 'right') {
       if (index === this.props.images.length - 1) {
         this.setState({
@@ -53,6 +53,7 @@ class Carousel extends React.Component {
   }
 
   clickDots(event) {
+    this.componentDidMount();
     this.setState({
       index: Number(event.target.id)
     });

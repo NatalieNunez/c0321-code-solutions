@@ -17,7 +17,7 @@ class Carousel extends React.Component {
   }
 
   updateCarousel() {
-    const intervalId = setInterval(() => {
+    this.interval = setInterval(() => {
       if (this.state.index === this.props.images.length - 1) {
         this.setState({
           index: 0
@@ -28,11 +28,10 @@ class Carousel extends React.Component {
         });
       }
     }, 3000);
-    return intervalId;
   }
 
   arrowClicks(event) {
-    clearInterval(this.updateCarousel());
+    clearInterval(this.interval);
     const index = this.state.index;
     if (event.target.id === 'right') {
       if (index === this.props.images.length - 1) {
@@ -57,13 +56,15 @@ class Carousel extends React.Component {
         });
       }
     }
+    this.updateCarousel();
   }
 
   clickDots(event) {
-    clearInterval(this.updateCarousel());
+    clearInterval(this.interval);
     this.setState({
       index: Number(event.target.id)
     });
+    this.updateCarousel();
   }
 
   renderProgressDots() {
